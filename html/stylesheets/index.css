@@ -1,7 +1,8 @@
 body {
-	background: #eee;
+	background-image: url("../images/sunndal.jpg");
+	background-size: cover;
 	font-family: "Arimo", sans-serif;
-	font-size: 20px;
+	font-size: 24px;
 	color: #4f4f4f;
 	margin: 0;
 }
@@ -12,20 +13,81 @@ body {
 	top: 50%;
 	left: 50%;
 	width: 540px;
-	height: 360px;
-	margin: -220px -310px;
-	padding: 40px;
+	height: 320px;
+	margin: -210px -310px;
+	padding: 50px 40px;
 }
 
 h1 {
 	font-family: "Montserrat", sans-serif;
-	font-size: 40px;
+	font-size: 44px;
 	color: #2a79f8;
 	margin: 0;
 }
 
 h2 {
 	font-family: "Montserrat", sans-serif;
-	font-size: 24px;
+	font-size: 30px;
 	margin: 12px 0;
+}
+
+a, a:visited {
+	color: #2a79f8;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+input[type=text] {
+	background: #fff;
+	margin-top: 24px;
+	font: inherit;
+	color: inherit;
+	padding: 4px;
+	border: 0;
+	border-bottom: 4px solid #4f4f4f;
+	width: 532px;
+}
+
+::-webkit-input-placeholder {
+	color: #4f4f4f;
+}
+
+::-moz-placeholder {
+	color: #4f4f4f;
+}
+
+:-ms-input-placeholder {
+	color: #4f4f4f;
+}
+
+input[type=text]:focus {
+	outline: none;
+	border-color: #2a79f8;
+}
+
+button {
+	background: #fff;
+	margin-top: 24px;
+	font: inherit;
+	color: inherit;
+	padding: 8px 0;
+	width: 264px;
+	border: 2px solid #4f4f4f;
+	cursor: pointer;
+}
+
+button:hover {
+	background: #eee;
+	border-color: #2a79f8;
+}
+
+button:active {
+	background: #ccc;
+}
+
+#hiddenmessage {
+	opacity: 0;
+	cursor: default;
 }
