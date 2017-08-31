@@ -1,0 +1,31 @@
+body {
+	background: #eee;
+	font-family: "Arimo", sans-serif;
+	font-size: 20px;
+	color: #4f4f4f;
+	margin: 0;
+}
+
+#box {
+	background: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 540px;
+	height: 360px;
+	margin: -220px -310px;
+	padding: 40px;
+}
+
+h1 {
+	font-family: "Montserrat", sans-serif;
+	font-size: 40px;
+	color: #9e57e0;
+	margin: 0;
+}
+
+h2 {
+	font-family: "Montserrat", sans-serif;
+	font-size: 24px;
+	margin: 12px 0;
+}
