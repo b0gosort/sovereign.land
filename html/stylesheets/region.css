@@ -22,6 +22,12 @@ body {
 	border: none;
 }
 
+#searchbar input[type=text]:focus {
+	outline: none;
+	color: #eee;
+	background: rgba(79, 79, 79, 0.9);
+}
+
 ::-webkit-input-placeholder {
 	color: #888;
 }
