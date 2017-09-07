@@ -19,10 +19,14 @@ body {
 }
 
 h1 {
+	display: inline-block;
+	margin: 0 0 16px 0;
+	padding:  4px 12px;
 	font-family: "Montserrat", sans-serif;
-	font-size: 44px;
-	color: #2a79f8;
-	margin: 12px 0 0 0;
+	font-size: 42px;
+	background: #2a79f8;
+	color: #fff;
+	cursor: default;
 }
 
 h2 {
