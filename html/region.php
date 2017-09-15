@@ -1,27 +1,52 @@
 <!DOCTYPE html>
+<?php
+
+function show_error($description) {
+	return "<html><head><title>Error | Sovereign.Land</title><style>body{font-family:sans-serif;font-size:20px;margin:40px}</style></head><body><h1>Something went wrong :'(</h2><p>There was an error processing your request. Please try again later.</p><p>If this problem persists, please contact a regional administrator.</p><p><b>Error description:</b> $description</p></body></html>";
+}
+
+if (isset($_GET["r"])) {
+	$region = filter_var($_GET["r"], FILTER_SANITIZE_STRING);
+	$region = strtolower(str_replace(" ", "_", $region));
+
+	if (file_exists("regions/$region.json")) {
+		$region_json = file_get_contents("regions/$region.json");
+		$region_data = json_decode($region_json, true);
+
+		$region_display = ucwords(str_replace("_", " ", $region));
+	} else {
+		echo show_error("The region '$region' could not be found on Sovereign.Land.");
+		die();
+	}
+} else {
+	header("Location: http://sovereign.land/");
+	die();
+}
+
+?>
 <html>
 	<head>
-		<title>Region Name | Sovereign.Land</title>
+		<title><?php echo $region_display; ?> | Sovereign.Land</title>
 		<link rel="stylesheet" href="stylesheets/region.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arimo:400,700|Montserrat:700">
 		<link rel="icon" type="image/png" href="favicon.png">
 	</head>
 	<body>
-		<form action="http://google.com/search" method="get" id="searchbar">
-			<input type="text" name="q" placeholder="enter a region name and press enter">
+		<form action="" method="get" id="searchbar">
+			<input type="text" name="r" placeholder="enter a region name and press enter">
 		</form>
 
 		<div id="banner">
 			<div id="titlearea">
 				<h1><a href="http://sovereign.land/">sovereign.land</a></h1>
-				<h2><a href="">Region Name</a></h2>
+				<h2><a href=""><?php echo $region_display; ?></a></h2>
 				<!--<h3>game player, regional government, security council, founderless, gargantuan, sinker, defender, democratic, offsite forums, world assembly</h3>-->
 				<button onclick="showForm(this)">Write New Post</button>
 				<a href=""><button>Edit This Page</button></a>
 			</div>
 		</div>
 
-		<form class="postitem" id="post_form">
+		<form class="postitem" id="post_form" action="makepost.php" method="post">
 			<div class="formsection">
 				<p>You must verify your nation before posting.</p>
 				<button>Get Verification Code</button>

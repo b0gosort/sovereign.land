@@ -43,6 +43,8 @@ body {
 #banner {
 	width: 100%;
 	background: linear-gradient(to right, #aee0ff, #3faef3);
+	background-size: cover;
+	background-position: center;
 }
 
 #titlearea {
