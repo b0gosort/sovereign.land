@@ -42,7 +42,7 @@ body {
 
 #banner {
 	width: 100%;
-	background: linear-gradient(to right, #aee0ff, #3faef3);
+	background-color: #666;
 	background-size: cover;
 	background-position: center;
 }
@@ -51,7 +51,7 @@ body {
 	width: 700px;
 	margin: 0 auto;
 	text-align: center;
-	padding: 120px 20px 80px 20px;
+	padding: 80px 20px 40px 20px;
 }
 
 #titlearea h1 {
@@ -59,7 +59,7 @@ body {
 	margin: 0;
 	padding:  4px 12px;
 	font-family: "Montserrat", sans-serif;
-	font-size: 42px;
+	font-size: 32px;
 	background: #2a79f8;
 	color: #fff;
 	cursor: default;
@@ -94,7 +94,7 @@ button {
 
 #titlearea button {
 	padding: 8px 0;
-	width: 240px;
+	width: 200px;
 }
 
 button:hover {
