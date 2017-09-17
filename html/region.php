@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
 
+include "Parsedown.php";
+$Parsedown = new Parsedown();
+
 function show_error($description) {
 	return "<html><head><title>Error | Sovereign.Land</title><style>body{font-family:sans-serif;font-size:20px;margin:40px}</style></head><body><h1>Something went wrong :'(</h2><p>There was an error processing your request. Please try again later.</p><p>If this problem persists, please contact a regional administrator.</p><p><b>Error description:</b> $description</p></body></html>";
 }
@@ -14,6 +17,8 @@ if (isset($_GET["r"])) {
 		$region_data = json_decode($region_json, true);
 
 		$region_display = ucwords(str_replace("_", " ", $region));
+
+		$post_dir = "posts/$region";
 	} else {
 		echo show_error("The region '$region' could not be found on Sovereign.Land.");
 		die();
@@ -36,7 +41,7 @@ if (isset($_GET["r"])) {
 			<input type="text" name="r" placeholder="enter a region name and press enter">
 		</form>
 
-		<div id="banner">
+		<div id="banner" style="background-image: url('images/<?php echo $region; ?>.jpg')">
 			<div id="titlearea">
 				<h1><a href="http://sovereign.land/">sovereign.land</a></h1>
 				<h2><a href=""><?php echo $region_display; ?></a></h2>
@@ -64,20 +69,25 @@ if (isset($_GET["r"])) {
 			</div>
 		</form>
 
-		<div class="postitem">
-			<h1>Sample Event Post</h1>
-			<p class="postinfo">Posted on 02 September 2017 at 12:00 by <a href="">Nation Name</a></p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec fermentum ipsum. Etiam auctor in mi vel ultricies. Fusce rhoncus vitae nunc quis elementum. Phasellus at enim congue, volutpat purus vitae, pharetra dui. Mauris et risus pharetra, consectetur nisl vitae, semper massa. Pellentesque vitae feugiat velit. Quisque a sapien eget ligula venenatis ultrices vel eu erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-			<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam tempus metus ut turpis tristique, eu viverra enim mollis. Vivamus maximus leo id consectetur fringilla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc venenatis velit vitae tortor accumsan mollis. Pellentesque suscipit erat quis pulvinar fringilla. Proin mattis ex tellus, sit amet faucibus libero ornare vitae.</p>
-			<p>Sed vitae nulla libero. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris eget justo quis magna mollis tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mattis consequat bibendum. Integer at elit at quam gravida ultricies. Vestibulum vitae volutpat quam. Sed in egestas velit, ac facilisis lorem. In tristique, lorem id dictum pharetra, lorem turpis vestibulum lacus, in hendrerit velit leo sollicitudin tellus. Aliquam ac arcu odio. Nunc fermentum scelerisque turpis, vel mattis quam lobortis in.</p>
-		</div>
+		<?php
 
-		<div class="postitem">
-			<h1>Another Event Post</h1>
-			<p class="postinfo">Posted on 31 August 2017 at 08:00 by <a href="">Nation Name</a></p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec fermentum ipsum. Etiam auctor in mi vel ultricies. Fusce rhoncus vitae nunc quis elementum. Phasellus at enim congue, volutpat purus vitae, pharetra dui. Mauris et risus pharetra, consectetur nisl vitae, semper massa. Pellentesque vitae feugiat velit. Quisque a sapien eget ligula venenatis ultrices vel eu erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-			<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam tempus metus ut turpis tristique, eu viverra enim mollis. Vivamus maximus leo id consectetur fringilla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc venenatis velit vitae tortor accumsan mollis. Pellentesque suscipit erat quis pulvinar fringilla. Proin mattis ex tellus, sit amet faucibus libero ornare vitae.</p>
-		</div>
+		$files = array_filter(glob($post_dir . "/*"), "is_file");
+
+		foreach(array_slice(array_reverse($files), 0, 4) as $file) {
+			$post_json = file_get_contents($file);
+			$post_data = json_decode($post_json, true);
+
+			$title = $post_data["title"];
+			//$time = date("d F Y \at H:i", $post_data["time"]);
+			$time = $post_data["time"];
+			$author = $post_data["author"];
+			$author_link = $post_data["authorLink"];
+			$content = $Parsedown->text($post_data["content"]);
+
+			echo "<div class='postitem'><h1>$title</h1><p class='postinfo'>Posted on $time by <a href='$author_link' target='_blank'>$author</a></p>$content</div>";
+		}
+
+		?>
 
 		<script>
 			function showForm(button) {
