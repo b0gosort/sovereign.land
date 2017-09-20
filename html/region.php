@@ -4,6 +4,8 @@
 include "Parsedown.php";
 $Parsedown = new Parsedown();
 
+ini_set("user_agent", "Roleplay Platform http://sovereign.land");
+
 function show_error($description) {
 	return "<html><head><title>Error | Sovereign.Land</title><style>body{font-family:sans-serif;font-size:20px;margin:40px}</style></head><body><h1>Something went wrong :'(</h2><p>There was an error processing your request. Please try again later.</p><p>If this problem persists, please contact a regional administrator.</p><p><b>Error description:</b> $description</p></body></html>";
 }
@@ -15,6 +17,10 @@ if (isset($_GET["r"])) {
 	if (file_exists("regions/$region.json")) {
 		$region_json = file_get_contents("regions/$region.json");
 		$region_data = json_decode($region_json, true);
+
+		$census_obja = simplexml_load_file("https://www.nationstates.net/cgi-bin/api.cgi?region=$region&q=numnations+flag");
+		$census_json = json_encode($census_obja);
+		$census_objb = json_decode($census_json, true);
 
 		$region_display = ucwords(str_replace("_", " ", $region));
 
@@ -39,8 +45,9 @@ if (isset($_GET["r"])) {
 	<body>
 		<div id="sidebar">
 			<h1><a href="http://sovereign.land/">sovereign.land</a></h1>
-			<h2><?php echo $region_display; ?></h2>
-			<h3>a Nordic-themed region welcome to nations of all kinds</h3>
+			<h2><img src='<?php echo $census_objb["FLAG"]; ?>'><?php echo $region_display; ?></h2>
+			<p>Home to <?php echo $census_objb["NUMNATIONS"]; ?> nations</p>
+			<p><?php echo $region_data["description"]; ?></p>
 			<button onclick="showForm(this)">Write New Post</button>
 			<a href=""><button>Edit This Page</button></a>
 			<a href="http://nationstates.net/region=<?php echo $region; ?>" target="_blank"><button>View on NationStates</button></a>
