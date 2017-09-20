@@ -37,57 +37,54 @@ if (isset($_GET["r"])) {
 		<link rel="icon" type="image/png" href="favicon.png">
 	</head>
 	<body>
-		<form action="" method="get" id="searchbar">
-			<input type="text" name="r" placeholder="enter a region name and press enter">
-		</form>
-
-		<div id="banner" style="background-image: url('images/<?php echo $region; ?>.jpg')">
-			<div id="titlearea">
-				<h1><a href="http://sovereign.land/">sovereign.land</a></h1>
-				<h2><a href=""><?php echo $region_display; ?></a></h2>
-				<!--<h3>game player, regional government, security council, founderless, gargantuan, sinker, defender, democratic, offsite forums, world assembly</h3>-->
-				<button onclick="showForm(this)">Write New Post</button>
-				<a href=""><button>Edit This Page</button></a>
-			</div>
+		<div id="sidebar">
+			<h1><a href="http://sovereign.land/">sovereign.land</a></h1>
+			<h2><?php echo $region_display; ?></h2>
+			<h3>a Nordic-themed region welcome to nations of all kinds</h3>
+			<button onclick="showForm(this)">Write New Post</button>
+			<a href=""><button>Edit This Page</button></a>
+			<a href="http://nationstates.net/region=<?php echo $region; ?>" target="_blank"><button>View on NationStates</button></a>
 		</div>
 
-		<form class="postitem" id="post_form" action="makepost.php" method="post">
-			<div class="formsection">
-				<p>You must verify your nation before posting.</p>
-				<button>Get Verification Code</button>
-				<input type="text" name="nation" placeholder="enter your nation name">
-				<input type="text" name="vcode" placeholder="enter your verification code">
-			</div>
+		<div id="content">
+			<form class="postitem" id="post_form" action="makepost.php" method="post">
+				<div class="formsection">
+					<p>You must verify your nation before posting.</p>
+					<button>Get Verification Code</button>
+					<input type="text" name="nation" placeholder="enter your nation name">
+					<input type="text" name="vcode" placeholder="enter your verification code">
+				</div>
 
-			<div class="formsection">
-				<input type="text" name="title" id="titlebox" placeholder="enter a post title">
-				<textarea name="content"></textarea>
-			</div>
+				<div class="formsection">
+					<input type="text" name="title" id="titlebox" placeholder="enter a post title">
+					<textarea name="content"></textarea>
+				</div>
 
-			<div class="formsection">
-				<button type="submit">Make Post in Region Name</button>
-			</div>
-		</form>
+				<div class="formsection">
+					<button type="submit">Make Post in Region Name</button>
+				</div>
+			</form>
 
-		<?php
+			<?php
 
-		$files = array_filter(glob($post_dir . "/*"), "is_file");
+			$files = array_filter(glob($post_dir . "/*"), "is_file");
 
-		foreach(array_slice(array_reverse($files), 0, 4) as $file) {
-			$post_json = file_get_contents($file);
-			$post_data = json_decode($post_json, true);
+			foreach(array_slice(array_reverse($files), 0, 4) as $file) {
+				$post_json = file_get_contents($file);
+				$post_data = json_decode($post_json, true);
 
-			$title = $post_data["title"];
-			//$time = date("d F Y \at H:i", $post_data["time"]);
-			$time = $post_data["time"];
-			$author = $post_data["author"];
-			$author_link = $post_data["authorLink"];
-			$content = $Parsedown->text($post_data["content"]);
+				$title = $post_data["title"];
+				//$time = date("d F Y \at H:i", $post_data["time"]);
+				$time = $post_data["time"];
+				$author = $post_data["author"];
+				$author_link = $post_data["authorLink"];
+				$content = $Parsedown->text($post_data["content"]);
 
-			echo "<div class='postitem'><h1>$title</h1><p class='postinfo'>Posted on $time by <a href='$author_link' target='_blank'>$author</a></p>$content</div>";
-		}
+				echo "<div class='postitem'><h1>$title</h1><p class='postinfo'>Posted on $time by <a href='$author_link' target='_blank'>$author</a></p>$content</div>";
+			}
 
-		?>
+			?>
+		</div>
 
 		<script>
 			function showForm(button) {
@@ -95,8 +92,10 @@ if (isset($_GET["r"])) {
 
 				if (theForm.style.height == "732px") {
 					theForm.style.height = 0;
+					theForm.style.marginBottom = 0;
 				} else {
 					theForm.style.height = "732px";
+					theForm.style.marginBottom = "40px";
 				}
 
 				button.innerHTML = button.innerHTML == "Write New Post" ? "Cancel Post" : "Write New Post";

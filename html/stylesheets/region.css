@@ -5,80 +5,38 @@ body {
 	margin: 0;
 }
 
-#searchbar {
+#sidebar {
 	position: fixed;
-	top: 0;
-	width: 100%;
+	top: 80px;
+	left: 50%;
+	width: 300px;
+	margin-left: -520px;
 }
 
-#searchbar input[type=text] {
-	font-family: "Arimo", sans-serif;
-	font-size: 24px;
-	color: #4f4f4f;
-	background: rgba(255, 255, 255, 0.9);
-	box-sizing: border-box;
-	width: 100%;
-	padding: 8px;
-	border: none;
-}
-
-#searchbar input[type=text]:focus {
-	outline: none;
-	color: #eee;
-	background: rgba(79, 79, 79, 0.9);
-}
-
-::-webkit-input-placeholder {
-	color: #888;
-}
-
-::-moz-placeholder {
-	color: #888;
-}
-
-:-ms-input-placeholder {
-	color: #888;
-}
-
-#banner {
-	width: 100%;
-	background-color: #666;
-	background-size: cover;
-	background-position: center;
-}
-
-#titlearea {
-	width: 700px;
-	margin: 0 auto;
-	text-align: center;
-	padding: 80px 20px 40px 20px;
-}
-
-#titlearea h1 {
+#sidebar h1 {
 	display: inline-block;
 	margin: 0;
-	padding:  4px 12px;
+	padding:  4px 10px;
 	font-family: "Montserrat", sans-serif;
-	font-size: 32px;
+	font-size: 28px;
 	background: #2a79f8;
 	color: #fff;
 	cursor: default;
 }
 
-#titlearea h2 {
+#sidebar h2 {
 	font-family: "Montserrat", sans-serif;
-	font-size: 72px;
-	color: #fff;
+	font-size: 36px;
 	margin: 20px 0;
 }
 
-#titlearea h3 {
+#sidebar h3 {
 	font-size: 28px;
 	font-weight: 400;
-	margin-bottom: 0;
+	margin: 0;
 }
 
-#titlearea a, #titlearea a:visited, #titlearea a:hover {
+#sidebar a, #sidebar a:visited, #sidebar a:hover {
 	font: inherit;
 	color: inherit;
 	text-decoration: inherit;
@@ -92,9 +50,11 @@ button {
 	cursor: pointer;
 }
 
-#titlearea button {
+#sidebar button {
+	display: block;
+	margin: 18px 0;
 	padding: 8px 0;
-	width: 200px;
+	width: 100%;
 }
 
 button:hover {
@@ -106,10 +66,17 @@ button:active {
 	background: #ccc;
 }
 
+#content {
+	position: absolute;
+	width: 700px;
+	top: 80px;
+	left: 50%;
+	margin-left: -180px;
+}
+
 .postitem {
-	width: 1000px;
-	margin: 40px auto;
-	padding-bottom: 40px;
+	margin: 0 0 40px 0;
+	padding-bottom: 22px;
 	border-bottom: 1px solid #ccc;
 	line-height: 1.3;
 }
@@ -118,7 +85,7 @@ button:active {
 	font-family: "Montserrat", sans-serif;
 	font-size: 48px;
 	color: #333;
-	margin: 20px 0;
+	margin: 0 0 20px 0;
 }
 
 .postinfo {
@@ -142,6 +109,7 @@ a:hover {
 	height: 0;
 	overflow: hidden;
 	transition: height 1s;
+	margin-bottom: 0;
 }
 
 .formsection {
