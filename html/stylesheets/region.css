@@ -30,10 +30,10 @@ body {
 	margin: 20px 0;
 }
 
-#sidebar h3 {
-	font-size: 28px;
-	font-weight: 400;
-	margin: 0;
+#sidebar h2 img {
+	height: 34px;
+	border: 1px solid #4f4f4f;
+	margin-right: 8px;
 }
 
 #sidebar a, #sidebar a:visited, #sidebar a:hover {
