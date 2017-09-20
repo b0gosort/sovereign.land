@@ -48,16 +48,22 @@ if (isset($_GET["r"])) {
 			<h2><img src='<?php echo $census_objb["FLAG"]; ?>'><?php echo $region_display; ?></h2>
 			<p>Home to <?php echo $census_objb["NUMNATIONS"]; ?> nations</p>
 			<p><?php echo $region_data["description"]; ?></p>
-			<button onclick="showForm(this)">Write New Post</button>
-			<a href=""><button>Edit This Page</button></a>
-			<a href="http://nationstates.net/region=<?php echo $region; ?>" target="_blank"><button>View on NationStates</button></a>
+			<a class="button" href="#" onclick="showForm(this)">Write New Post</button>
+			<a class="button" href="#">Edit This Page</a>
+			<a class="button" href="http://nationstates.net/region=<?php echo $region; ?>" target="_blank">View on NationStates</a>
+
+			<div id="copyright">
+				<p>Developed by <a href="http://b0gosort.github.io" target="_blank">Solborg Development</a></p>
+				<p>Copyright <?php echo date("Y"); ?> Cooper Johnston</p>
+			</div>
 		</div>
 
 		<div id="content">
 			<form class="postitem" id="post_form" action="makepost.php" method="post">
+				<input type="hidden" name="region" value="<?php echo $region; ?>">
 				<div class="formsection">
 					<p>You must verify your nation before posting.</p>
-					<button>Get Verification Code</button>
+					<a class="button" href="https://www.nationstates.net/page=verify_login" target="_blank">Get Verification Code</a>
 					<input type="text" name="nation" placeholder="enter your nation name">
 					<input type="text" name="vcode" placeholder="enter your verification code">
 				</div>
@@ -76,7 +82,13 @@ if (isset($_GET["r"])) {
 
 			$files = array_filter(glob($post_dir . "/*"), "is_file");
 
-			foreach(array_slice(array_reverse($files), 0, 4) as $file) {
+			$page = 1;
+			if (isset($_GET["page"])) $page = filter_var($_GET["page"], FILTER_SANITIZE_NUMBER_INT);
+			
+			$end = $page * 4;
+			$start = $end - 4;
+
+			foreach (array_slice(array_reverse($files), $start, $end) as $file) {
 				$post_json = file_get_contents($file);
 				$post_data = json_decode($post_json, true);
 
@@ -87,21 +99,35 @@ if (isset($_GET["r"])) {
 				$author_link = $post_data["authorLink"];
 				$content = $Parsedown->text($post_data["content"]);
 
-				echo "<div class='postitem'><h1>$title</h1><p class='postinfo'>Posted on $time by <a href='$author_link' target='_blank'>$author</a></p>$content</div>";
+				echo "<div class='postitem'><h1>$title</h1><p class='postinfo'>Posted on $time by <a href='$author_link' target='_blank'>$author</a></p><span class='postcontent'>$content</span></div>";
 			}
 
 			?>
+
+			<div id="navigation">
+				<?php
+
+				if ($page > 1) {
+					$prevpage = $page - 1;
+					echo "<a class='button' href='region.php?r=$region&page=$prevpage'>Newer Posts</a>\n";
+				}
+
+				$nextpage = $page + 1;
+				echo "<a class='button' href='region.php?r=$region&page=$nextpage'>Older Posts</a>"
+				
+				?>
+			</div>
 		</div>
 
 		<script>
 			function showForm(button) {
 				var theForm = document.getElementById("post_form");
 
-				if (theForm.style.height == "732px") {
+				if (theForm.style.height == "760px") {
 					theForm.style.height = 0;
 					theForm.style.marginBottom = 0;
 				} else {
-					theForm.style.height = "732px";
+					theForm.style.height = "760px";
 					theForm.style.marginBottom = "40px";
 				}
 
