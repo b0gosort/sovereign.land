@@ -131,7 +131,7 @@ if (isset($_GET["r"])) {
 					theForm.style.marginBottom = "40px";
 				}
 
-				button.innerHTML = button.innerHTML == "Write New Post" ? "Cancel Post" : "Write New Post";
+				button.innerHTML = button.innerHTML == "Cancel Post" ? "Write New Post" : "Cancel Post";
 			}
 		</script>
 	</body>
