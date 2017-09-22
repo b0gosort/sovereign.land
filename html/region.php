@@ -74,7 +74,7 @@ if (isset($_GET["r"])) {
 				</div>
 
 				<div class="formsection">
-					<button type="submit">Make Post in Region Name</button>
+					<button type="submit">Make Post in <?php echo $region_display; ?></button>
 				</div>
 			</form>
 
