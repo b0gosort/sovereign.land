@@ -123,12 +123,10 @@ if (isset($_GET["r"])) {
 			function showForm(button) {
 				var theForm = document.getElementById("post_form");
 
-				if (theForm.style.height == "760px") {
+				if (theForm.style.height == "800px") {
 					theForm.style.height = 0;
-					theForm.style.marginBottom = 0;
 				} else {
-					theForm.style.height = "760px";
-					theForm.style.marginBottom = "40px";
+					theForm.style.height = "800px";
 				}
 
 				button.innerHTML = button.innerHTML == "Cancel Post" ? "Write New Post" : "Cancel Post";
