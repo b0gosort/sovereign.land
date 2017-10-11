@@ -6,6 +6,7 @@ body {
 }
 
 #sidebar {
+	display: none;
 	position: fixed;
 	top: 80px;
 	left: 50%;
@@ -78,31 +79,32 @@ button, .button, .button:visited {
 }
 
 #content {
-	position: absolute;
 	width: 700px;
-	top: 80px;
-	left: 50%;
-	margin-left: -180px;
+	margin: 80px auto;
 }
 
 .postitem {
 	margin: 0 0 40px 0;
 	padding-bottom: 22px;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 8px solid #000;
 	line-height: 1.5;
 }
 
 .postitem h1 {
-	font-family: "Montserrat", sans-serif;
+	font-family: "Roboto Condensed", sans-serif;
 	font-size: 48px;
-	color: #333;
-	margin: 0 0 20px 0;
+	color: #000;
+	margin: 0;
+	text-align: center;
 }
 
 .postinfo {
-	background: #eee;
 	font-weight: 700;
 	padding: 8px;
+	margin-top: 0;
+	color: #000;
+	border-bottom: 1px solid #000;
+	text-align: center;
 	box-sizing: border-box;
 }
 
