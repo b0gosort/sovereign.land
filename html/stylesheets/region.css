@@ -120,6 +120,13 @@ button, .button, .button:visited {
 	color: #4f4f4f;
 }
 
+.postitem img {
+	display: block;
+	max-width: 700px;
+	border: 1px solid #000;
+	margin: 0 auto;
+}
+
 a, a:visited {
 	color: #2a79f8;
 }
