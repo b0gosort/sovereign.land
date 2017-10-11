@@ -11,7 +11,11 @@ body {
 	color: #fff;
 }
 
-.postinfo, .postitem img {
+.postinfo {
 	color: #fff;
 	border-bottom: 1px solid #fff;
+}
+
+.postitem img {
+	border: 1px solid #fff;
 }
