@@ -1,0 +1,16 @@
+body {
+	color: #4f4f4f;
+}
+
+.postitem {
+	border-bottom: 8px solid #000;
+}
+
+.postitem h1, .postitem h2 {
+	color: #000;
+}
+
+.postinfo, .postitem img {
+	color: #000;
+	border-bottom: 1px solid #000;
+}

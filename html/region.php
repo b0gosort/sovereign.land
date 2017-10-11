@@ -39,6 +39,7 @@ if (isset($_GET["r"])) {
 	<head>
 		<title><?php echo $region_display; ?> | Sovereign.Land</title>
 		<link rel="stylesheet" href="stylesheets/region.css">
+		<link rel="stylesheet" href="stylesheets/theme_day.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arimo:400,700|Montserrat:700">
 		<link rel="icon" type="image/png" href="favicon.png">
 	</head>
