@@ -1,0 +1,17 @@
+body {
+	background: #212430;
+	color: #c5d2e3;
+}
+
+.postitem {
+	border-bottom: 8px solid #fff;
+}
+
+.postitem h1, .postitem h2 {
+	color: #fff;
+}
+
+.postinfo, .postitem img {
+	color: #fff;
+	border-bottom: 1px solid #fff;
+}
