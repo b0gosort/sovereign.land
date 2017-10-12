@@ -4,81 +4,69 @@ body {
 	margin: 0;
 }
 
-#sidebar {
-	display: none;
+a, a:visited {
+	color: #2a79f8;
 }
-/*
-#sidebar {
+
+a:hover {
+	text-decoration: none;
+}
+
+/*Top Bar*/
+
+#topbar {
 	position: fixed;
-	top: 80px;
-	left: 50%;
-	width: 280px;
-	margin-left: -520px;
-}
-
-#sidebar h1 {
-	display: inline-block;
-	margin: 0;
-	padding:  4px 10px;
-	font-family: "Montserrat", sans-serif;
-	font-size: 28px;
-	background: #2a79f8;
-	color: #fff;
-	cursor: default;
-}
-
-#sidebar h2 {
-	font-family: "Montserrat", sans-serif;
-	font-size: 36px;
-	color: #333;
-	margin: 28px 0;
-}
-
-#sidebar h2 img {
-	height: 34px;
-	border: 1px solid #4f4f4f;
-	margin-right: 8px;
-}
-
-#sidebar h1 a, #sidebar h1 a:visited, #sidebar h1 a:hover {
-	font: inherit;
-	color: inherit;
-	text-decoration: inherit;
-}
-
-#sidebar .button {
-	display: block;
-	margin: 18px 0;
-	padding: 8px 0;
+	top: 0;
 	width: 100%;
-}
-
-.button:hover, button:hover {
 	background: #eee;
-	border-color: #2a79f8;
 }
 
-.button:active, button:active {
-	background: #ccc;
+#topcontainer {
+	width: 700px;
+	margin: 0 auto;
 }
 
-#copyright {
-	font-size: 16px;
-	color: #aaa;
-	margin-top: 30px;
-}
-*/
-button, .button, .button:visited {
+#topbar p {
 	display: inline-block;
-	background: #fff;
-	font: inherit;
+	color: #4f4f4f;
+	margin: 8px 0;
+}
+
+#topbar b, #topbar a {
+	font-family: "Roboto Condensed", sans-serif;
+	font-size: 30px;
+}
+
+#topbar b a, #topbar b a:visited {
 	color: #4f4f4f;
 	text-decoration: none;
-	border: 2px solid #4f4f4f;
-	padding: 8px 20px;
-	cursor: pointer;
-	text-align: center;
 }
+
+#topbar img {
+	height: 22px;
+	border: 1px solid #4f4f4f;
+}
+
+#topbuttons {
+	float: right;
+}
+
+a.topbutton, a.topbutton:visited {
+	display: inline-block;
+	color: #4f4f4f;
+	text-decoration: none;
+	width: 32px;
+	text-align: center;
+	margin-left: 8px;
+	outline: 1px solid #4f4f4f;
+}
+
+a.topbutton:hover {
+	color: #eee;
+	background: #4f4f4f;
+}
+
+/*Page Arrows*/
 
 #prevpage {
 	position: fixed;
@@ -101,9 +89,11 @@ button, .button, .button:visited {
 	text-decoration: none;
 }
 
+/*Content Area*/
+
 #content {
 	width: 700px;
-	margin: 80px auto;
+	margin: 100px auto;
 }
 
 .postitem {
@@ -143,13 +133,12 @@ button, .button, .button:visited {
 	margin: 0 auto;
 }
 
-a, a:visited {
-	color: #2a79f8;
+#footer {
+	margin: 40px 0;
+	text-align: center;
 }
 
-a:hover {
-	text-decoration: none;
-}
+/*Post Form*/
 
 #post_form {
 	padding: 0;
@@ -166,11 +155,8 @@ a:hover {
 
 #post_form input[type=text] {
 	font: inherit;
-	color: #4f4f4f;
 	display: block;
-	background: #fff;
 	border: none;
-	border-bottom: 2px solid #ccc;
 	padding: 4px;
 	margin: 18px 0;
 	box-sizing: border-box;
@@ -189,18 +175,14 @@ a:hover {
 
 #post_form #titlebox {
 	width: 100%;
-	font-family: "Montserrat", sans-serif;
+	font-family: "Roboto Condensed", sans-serif;
 	font-size: 36px;
 	font-weight: 700;
-	color: #333;
 }
 
 #post_form textarea {
-	background: #eee;
 	font: inherit;
-	color: #4f4f4f;
 	border: none;
-	border-bottom: 2px solid #eee;
 	margin: 0;
 	padding: 8px;
 	box-sizing: border-box;
@@ -214,7 +196,11 @@ a:hover {
 	outline: none;
 }
 
-#footer {
-	margin: 40px 0;
+button, .button, .button:visited {
+	display: inline-block;
+	font: inherit;
+	text-decoration: none;
+	padding: 8px 20px;
+	cursor: pointer;
 	text-align: center;
 }

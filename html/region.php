@@ -39,23 +39,23 @@ if (isset($_GET["r"])) {
 	<head>
 		<title><?php echo $region_display; ?> | Sovereign.Land</title>
 		<link rel="stylesheet" href="stylesheets/region.css">
-		<link rel="stylesheet" href="stylesheets/theme_day.css">
+		<link rel="stylesheet" href="stylesheets/theme_day.css" id="theme_link">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i|Roboto+Condensed:700">
 		<link rel="icon" type="image/png" href="favicon.png">
 	</head>
 	<body>
-		<div id="sidebar">
-			<h1><a href="http://sovereign.land/">sovereign.land</a></h1>
-			<h2><img src='<?php echo $census_objb["FLAG"]; ?>'><?php echo $region_display; ?></h2>
-			<p>Home to <?php echo $census_objb["NUMNATIONS"]; ?> nations</p>
-			<p><?php echo $region_data["description"]; ?></p>
-			<a class="button" href="#" onclick="showForm(this)">Write New Post</button>
-			<a class="button" href="#">Edit This Page</a>
-			<a class="button" href="http://nationstates.net/region=<?php echo $region; ?>" target="_blank">View on NationStates</a>
-
-			<div id="copyright">
-				<p>Developed by <a href="http://b0gosort.github.io" target="_blank">Solborg Development</a></p>
-				<p>Copyright <?php echo date("Y"); ?> Cooper Johnston</p>
+		<div id="topbar">
+			<div id="topcontainer">
+				<p>
+					<img src='<?php echo $census_objb["FLAG"]; ?>'>
+					<b><a href="http://nationstates.net/region=<?php echo $region; ?>" target="_blank"><?php echo $region_display; ?></a></b>
+					<?php echo $census_objb["NUMNATIONS"]; ?> nations
+				</p>
+				<p id="topbuttons">
+					<a href="http://sovereign.land/">sovereign.land</a>
+					<a class="topbutton" href="#" title="Night Theme" onclick="switchTheme(this)">N</a>
+					<a class="topbutton" href="#" title="Write New Post" onclick="showForm(this)">+</a>
+				</p>
 			</div>
 		</div>
 
@@ -133,11 +133,27 @@ if (isset($_GET["r"])) {
 
 				if (theForm.style.height == "800px") {
 					theForm.style.height = 0;
+					button.title = "Write New Post";
+					button.innerHTML = "+"
 				} else {
 					theForm.style.height = "800px";
+					button.title = "Cancel Post";
+					button.innerHTML = "X";
 				}
+			}
 
-				button.innerHTML = button.innerHTML == "Cancel Post" ? "Write New Post" : "Cancel Post";
+			function switchTheme(button) {
+				var themeLink = document.getElementById("theme_link");
+
+				if (button.title == "Day Theme") {
+					themeLink.href = "stylesheets/theme_day.css";
+					button.title = "Night Theme";
+					button.innerHTML = "N";
+				} else {
+					themeLink.href = "stylesheets/theme_night.css";
+					button.title = "Day Theme";
+					button.innerHTML = "D";
+				}
 			}
 		</script>
 	</body>

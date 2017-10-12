@@ -27,3 +27,38 @@ body {
 .pagearrow a:hover {
 	color: #fff;
 }
+
+#post_form input[type=text] {
+	background: #212430;
+	color: #c5d2e3;
+	border-bottom: 2px solid #33384d;
+}
+
+#post_form input[type=text]:focus {
+	background: #33384d;
+}
+
+#post_form #titlebox {
+	color: #fff;
+}
+
+#post_form textarea {
+	background: #33384d;
+	color: #c5d2e3;
+	border-bottom: 2px solid #33384d;
+}
+
+button, .button, .button:visited {
+	background: #212430;
+	color: #c5d2e3;
+	border: 2px solid #c5d2e3;
+}
+
+.button:hover, button:hover {
+	background: #33384d;
+	border-color: #2a79f8;
+}
+
+.button:active, button:active {
+	background: #3f465f;
+}

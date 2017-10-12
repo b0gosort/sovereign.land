@@ -27,3 +27,38 @@ body {
 .pagearrow a:hover {
 	color: #000;
 }
+
+#post_form input[type=text] {
+	background: #fff;
+	color: #4f4f4f;
+	border-bottom: 2px solid #eee;
+}
+
+#post_form input[type=text]:focus {
+	background: #eee;
+}
+
+#post_form #titlebox {
+	color: #000;
+}
+
+#post_form textarea {
+	background: #eee;
+	color: #4f4f4f;
+	border-bottom: 2px solid #eee;
+}
+
+button, .button, .button:visited {
+	background: #fff;
+	color: #4f4f4f;
+	border: 2px solid #4f4f4f;
+}
+
+.button:hover, button:hover {
+	background: #eee;
+	border-color: #2a79f8;
+}
+
+.button:active, button:active {
+	background: #ccc;
+}
