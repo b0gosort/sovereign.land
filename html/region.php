@@ -42,6 +42,8 @@ if (isset($_GET["r"])) {
 		<link rel="stylesheet" href="stylesheets/theme_day.css" id="theme_link">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i|Roboto+Condensed:700">
 		<link rel="icon" type="image/png" href="favicon.png">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
 		<div id="topbar">
