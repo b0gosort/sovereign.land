@@ -115,7 +115,7 @@ if (isset($_GET["r"])) {
 			<?php
 			if ($page > 1) {
 				$prevpage = $page - 1;
-				echo "<a href='region.php?r=$region&page=$prevpage'>&lt;</a>\n";
+				echo "<a href='region.php?r=$region&page=$prevpage' title='Previous Page'>&lt;</a>\n";
 			}			
 			?>
 		</div>
@@ -123,7 +123,7 @@ if (isset($_GET["r"])) {
 		<div id="nextpage" class="pagearrow">
 			<?php
 			$nextpage = $page + 1;
-			echo "<a href='region.php?r=$region&page=$nextpage'>&gt;</a>"
+			echo "<a href='region.php?r=$region&page=$nextpage' title='Next Page'>&gt;</a>"
 			?>
 		</div>
 
