@@ -19,3 +19,11 @@ body {
 .postitem img {
 	border: 1px solid #fff;
 }
+
+.pagearrow a {
+	color: #c5d2e3;
+}
+
+.pagearrow a:hover {
+	color: #fff;
+}

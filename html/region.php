@@ -105,19 +105,26 @@ if (isset($_GET["r"])) {
 
 			?>
 
-			<div id="navigation">
-				<?php
-
-				if ($page > 1) {
-					$prevpage = $page - 1;
-					echo "<a class='button' href='region.php?r=$region&page=$prevpage'>Newer Posts</a>\n";
-				}
-
-				$nextpage = $page + 1;
-				echo "<a class='button' href='region.php?r=$region&page=$nextpage'>Older Posts</a>"
-				
-				?>
+			<div id="footer">
+				<p>Developed by <a href="http://b0gosort.github.io">Solborg Development</a></p>
+				<p>Copyright &copy; 2017 Cooper Johnston</p>
 			</div>
+		</div>
+
+		<div id="prevpage" class="pagearrow">
+			<?php
+			if ($page > 1) {
+				$prevpage = $page - 1;
+				echo "<a href='region.php?r=$region&page=$prevpage'>&lt;</a>\n";
+			}			
+			?>
+		</div>
+
+		<div id="nextpage" class="pagearrow">
+			<?php
+			$nextpage = $page + 1;
+			echo "<a href='region.php?r=$region&page=$nextpage'>&gt;</a>"
+			?>
 		</div>
 
 		<script>

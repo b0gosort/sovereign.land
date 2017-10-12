@@ -80,6 +80,27 @@ button, .button, .button:visited {
 	text-align: center;
 }
 
+#prevpage {
+	position: fixed;
+	top: 50%;
+	left: 80px;
+	margin-top: -50px;
+}
+
+#nextpage {
+	position: fixed;
+	top: 50%;
+	right: 80px;
+	margin-top: -50px;
+}
+
+.pagearrow a {
+	font-family: "Roboto Condensed", sans-serif;
+	font-size: 100px;
+	font-weight: 700;
+	text-decoration: none;
+}
+
 #content {
 	width: 700px;
 	margin: 80px auto;
@@ -193,7 +214,7 @@ a:hover {
 	outline: none;
 }
 
-#navigation {
+#footer {
 	margin: 40px 0;
 	text-align: center;
 }
