@@ -25,14 +25,13 @@ $message = "";
 if (isset($_POST["nation"])) {
 	$nation = strtolower(filter_var(str_replace(" ", "_", $_POST["nation"]), FILTER_SANITIZE_ENCODED));
 	$vcode = filter_var($_POST["vcode"], FILTER_SANITIZE_ENCODED);
-	$region = filter_var($_POST["region"], FILTER_SANITIZE_ENCODED);
 
-	$config_json = file_get_contents("regions/$region.json");
+	$config_json = file_get_contents("config.json");
 	$config_data = json_decode($config_json, true);
 
 	$nation_display = ucwords(str_replace("_", " ", $nation));
 
-	if (iseligible($nation, $config_data, $region)) {
+	if (iseligible($nation, $config_data, $config_data["regionName"])) {
 		$verification = file_get_contents("https://www.nationstates.net/cgi-bin/api.cgi?a=verify&nation=$nation&checksum=$vcode");
 		if (strpos($verification, "1") !== false) {
 			$post_title = filter_var($_POST["title"], FILTER_SANITIZE_STRING);
@@ -50,7 +49,7 @@ if (isset($_POST["nation"])) {
 			);
 			$post_json = json_encode($post_data);
 
-			$post_file = fopen("posts/$region/$t" . "_$nation.json", "w");
+			$post_file = fopen("posts/$t" . "_$nation.json", "w");
 			fwrite($post_file, $post_json);
 			fclose($post_file);
 
