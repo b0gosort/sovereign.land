@@ -91,7 +91,7 @@ if (isset($_GET["r"])) {
 			$end = $page * 4;
 			$start = $end - 4;
 
-			foreach (array_slice(array_reverse($files), $start, $end) as $file) {
+			foreach (array_slice(array_reverse($files), $start, 4) as $file) {
 				$post_json = file_get_contents($file);
 				$post_data = json_decode($post_json, true);
 
