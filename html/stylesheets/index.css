@@ -1,38 +1,26 @@
 body {
-	background-image: url("../images/sunndal.jpg");
-	background-size: cover;
+	background: #fff;
 	font-family: "Arimo", sans-serif;
-	font-size: 24px;
-	color: #4f4f4f;
+	font-size: 26px;
+	color: #000;
 	margin: 0;
 }
 
-#box {
-	background: #fff;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 540px;
-	height: 320px;
-	margin: -210px -310px;
-	padding: 50px 40px;
-}
-
 h1 {
-	display: inline-block;
-	margin: 0 0 16px 0;
-	padding:  4px 12px;
-	font-family: "Montserrat", sans-serif;
-	font-size: 42px;
-	background: #2a79f8;
-	color: #fff;
+	margin: 100px 0 16px 0;
+	font-family: "Roboto Condensed", sans-serif;
+	font-size: 56px;
+	text-align: center;
+	color: #2a79f8;
 	cursor: default;
 }
 
 h2 {
-	font-family: "Montserrat", sans-serif;
-	font-size: 30px;
-	margin: 12px 0;
+	font-family: "Roboto Condensed", sans-serif;
+	font-size: 36px;
+	text-align: center;
+	margin: 12px auto;
+	width: 540px;
 }
 
 a, a:visited {
@@ -43,15 +31,22 @@ a:hover {
 	text-decoration: none;
 }
 
+form {
+	width: 540px;
+	margin: 0 auto;
+}
+
 input[type=text] {
-	background: #fff;
-	margin-top: 24px;
+	display: block;
+	background: #eee;
+	margin: 24px auto 0 auto;
 	font: inherit;
 	color: inherit;
-	padding: 4px;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 8px;
 	border: 0;
 	border-bottom: 4px solid #4f4f4f;
-	width: 532px;
 }
 
 ::-webkit-input-placeholder {
@@ -69,6 +64,11 @@ input[type=text] {
 input[type=text]:focus {
 	outline: none;
 	border-color: #2a79f8;
+}
+
+#buttons {
+	width: 100%;
+	margin: 0 auto;
 }
 
 button {
@@ -91,7 +91,41 @@ button:active {
 	background: #ccc;
 }
 
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
 #hiddenmessage {
 	opacity: 0;
 	cursor: default;
+}
+
+@media only screen and (max-width: 560px) {
+	h1, h2, form {
+		width: 100%;
+		padding: 0 20px;
+		box-sizing: border-box;
+	}
+
+	h1 {
+		font-size: 44px;
+	}
+
+	h2 {
+		font-size: 32px;
+	}
+
+	button {
+		display: block;
+		width: 100%;
+		margin: 18px auto;
+	}
+
+	.left, .right {
+		float: none;
+	}
 }

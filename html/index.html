@@ -3,19 +3,20 @@
 	<head>
 		<title>Sovereign.Land</title>
 		<link rel="stylesheet" href="stylesheets/index.css">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arimo:400,700|Montserrat:700">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arimo|Roboto+Condensed:700">
 		<link rel="icon" type="image/png" href="favicon.png">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
-		<p id="hiddenmessage">Hello</p>
-		<div id="box">
-			<h1>sovereign.land</h1>
-			<h2>A universal roleplay platform for NationStates regions. <a href="#">Read more &gt;&gt;</a></h2>
-			<form action="region.php" method="get">
-				<input type="text" placeholder="enter a region name" name="r">
-				<button type="submit" style="float: left;">View Region</button>
-				<button type="submit" style="float: right;" formaction="create.php">Create Page</button>
-			</form>
-		</div>
+		<h1>sovereign.land</h1>
+		<h2>A universal roleplay platform for NationStates regions by <a href="http://solborg.xyz" target="_blank">Solborg</a></h2>
+		<form action="region.php" method="get">
+			<input type="text" placeholder="enter a region name" name="r">
+			<div id="buttons">
+				<button type="submit" class="left">View Region</button>
+				<button type="submit" class="right" formaction="create.php">Create Page</button>
+			</div>
+		</form>
 	</body>
 </html>
