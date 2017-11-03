@@ -108,7 +108,7 @@ if (isset($_GET["r"])) {
 			?>
 
 			<div id="footer">
-				<p>Sovereign.Land Alpha 0.1.0, Developed by <a href="http://b0gosort.github.io" target="_blank">Solborg Development</a></p>
+				<p>Sovereign.Land Alpha 0.1.1, Developed by <a href="http://b0gosort.github.io" target="_blank">Solborg Development</a></p>
 				<p>Copyright &copy; 2017 Cooper Johnston</p>
 			</div>
 		</div>
