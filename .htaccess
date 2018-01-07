@@ -1,2 +1,0 @@
-RewriteEngine On
-RewriteRule ^region=([A-Za-z0-9-]+)/?$ region.php?r=$1 [NC,L]
