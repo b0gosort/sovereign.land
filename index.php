@@ -25,7 +25,6 @@ $census_objb = json_decode($census_json, true);
 	<head>
 		<title><?php echo $region_display; ?> | Sovereign.Land</title>
 		<link rel="stylesheet" href="stylesheets/region.css">
-		<link rel="stylesheet" href="stylesheets/theme_day.css" id="theme_link">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i|Roboto+Condensed:700">
 		<link rel="icon" type="image/png" href="favicon.png">
 
@@ -41,7 +40,6 @@ $census_objb = json_decode($census_json, true);
 				</p>
 				<p id="topbuttons">
 					<a href="http://sovereign.land/">sovereign.land</a>
-					<a class="topbutton" href="#" title="Night Theme" onclick="switchTheme(this)">N</a>
 					<a class="topbutton" href="#" title="Write New Post" onclick="showForm(this)">+</a>
 				</p>
 			</div>
@@ -127,20 +125,6 @@ $census_objb = json_decode($census_json, true);
 					theForm.style.height = "800px";
 					button.title = "Cancel Post";
 					button.innerHTML = "X";
-				}
-			}
-
-			function switchTheme(button) {
-				var themeLink = document.getElementById("theme_link");
-
-				if (button.title == "Day Theme") {
-					themeLink.href = "stylesheets/theme_day.css";
-					button.title = "Night Theme";
-					button.innerHTML = "N";
-				} else {
-					themeLink.href = "stylesheets/theme_night.css";
-					button.title = "Day Theme";
-					button.innerHTML = "D";
 				}
 			}
 		</script>
