@@ -37,6 +37,7 @@ a:hover {
 #topbar b, #topbar a {
 	font-family: "Roboto Condensed", sans-serif;
 	font-size: 30px;
+	font-weight: 700;
 }
 
 #topbar b a, #topbar b a:visited {

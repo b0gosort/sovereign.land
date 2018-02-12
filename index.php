@@ -39,7 +39,7 @@ $census_objb = json_decode($census_json, true);
 					<?php echo $census_objb["NUMNATIONS"]; ?> nations
 				</p>
 				<p id="topbuttons">
-					<a href="http://sovereign.land/">sovereign.land</a>
+					<a href="http://github.com/b0gosort/sovereign.land" target="_blank">sovereign.land</a>
 					<a class="topbutton" href="#" title="Write New Post" onclick="showForm(this)">+</a>
 				</p>
 			</div>
